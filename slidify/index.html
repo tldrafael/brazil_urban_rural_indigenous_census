@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Urban, Rural and Indigenous Population</title>
+  <meta charset="utf-8">
+  <meta name="description" content="Urban, Rural and Indigenous Population">
+  <meta name="author" content="Rafael de Souza Toledo">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/tomorrow.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  <link rel=stylesheet href="./assets/css/ribbons.css"></link>
+
+  
+  <!-- Grab CDN jQuery, fall back to local if offline -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="libraries/widgets/quiz/js/jquery.js"><\/script>')</script> 
+  <script data-main="libraries/frameworks/io2012/js/slides" 
+    src="libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  </script>
+  
+  
+
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+        <slide class="title-slide segue nobackground">
+  <hgroup class="auto-fadein">
+    <h1>Urban, Rural and Indigenous Population</h1>
+    <h2>Brazilian Demographic Census</h2>
+    <p>Rafael de Souza Toledo<br/>coursera student</p>
+  </hgroup>
+  <article></article>  
+</slide>
+    
+
+    <!-- SLIDES -->
+    <slide class="" id="slide-1" style="background:;">
+  <hgroup>
+    <h2>Brazilian Census</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Each 10 years, the IBGE institute does a survey around all Brazilian territory, in order to offer data and information over social-economics conditions of the people. This data serves to help the politicians and public authorities infer what actions implement on public agenda.  </p>
+
+<p>In my application, i used the data of the 2010 Census about where  the urban, rural and indigenous population are distributed on Brazil and compared them with the older years.  </p>
+
+<p>The Brazil nation is splitted into 27 states as present in the application.  </p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Indigenous Census</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>With the Indigenous Census, it is possible check how they are spread along the territory, on the demographic map, by 3 different decades. On the stack area chart we see if the population are growing or diminishing. For each of the activities is possible choose among the 27 brazilian states, and check the area as isolated case.</p>
+
+<pre><code>##    year indigenous growth_rate
+## 1: 1991     294131          NA
+## 2: 2000     734131      149.59
+## 3: 2010     817963       11.42
+</code></pre>
+
+<p>The table above show us how much the indigenous population has be growing. The <code>growth_rate</code> column is in percentage terms, we see a high enlargement, maybe it not just invoked by real population growth, but the increase on census accuracy and  in the own indian declaration about its race.</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Indigenous Census</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Checking specific states, it is possible to note distinct moves on the indigenous growth. When some states keep the growth, others seems to diminish of native presence, maybe it can be associate to migratory moves.</p>
+
+<p><img src="assets/fig/unnamed-chunk-4-1.png" alt="plot of chunk unnamed-chunk-4"></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Urban-Rural Census</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>The Urban-Rural Census evaluates the brazilian population distributed between these two factors. If join both, i can see the whole population along the decades.</p>
+
+<pre><code>##    years       pop growth_rate
+## 1:  1960  70992343          NA
+## 2:  1970  94508583       33.13
+## 3:  1980 121150573       28.19
+## 4:  1991 146917459       21.27
+## 5:  2000 169590693       15.43
+## 6:  2010 190755799       12.48
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Urban-Rural Census</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>I can verify the population growth along the urban and rural factors.</p>
+
+<p><img src="assets/fig/unnamed-chunk-6-1.png" alt="plot of chunk unnamed-chunk-6"></p>
+
+<p>Here, we can perceive that the urban still growing, but the rural are decreasing since the 70&#39;s.</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <article data-timings="">
+    
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+    <slide class="backdrop"></slide>
+  </slides>
+  <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
+    <ul>
+      <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=1 title='Brazilian Census'>
+         1
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=2 title='Indigenous Census'>
+         2
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=3 title='Indigenous Census'>
+         3
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=4 title='Urban-Rural Census'>
+         4
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=5 title='Urban-Rural Census'>
+         5
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=6 title='NA'>
+         6
+      </a>
+    </li>
+  </ul>
+  </div>  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+  <!-- Load Javascripts for Widgets -->
+  
+  <!-- LOAD HIGHLIGHTER JS FILES -->
+  <script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!-- DONE LOADING HIGHLIGHTER JS FILES -->
+   
+  </html>

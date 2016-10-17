@@ -1,0 +1,101 @@
+---
+title       : Urban, Rural and Indigenous Population 
+subtitle    : Brazilian Demographic Census
+author      : Rafael de Souza Toledo
+job         : coursera student
+framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
+highlighter : highlight.js  # {highlight.js, prettify, highlight}
+hitheme     : tomorrow      # 
+widgets     : []            # {mathjax, quiz, bootstrap}
+mode        : selfcontained # {standalone, draft}
+knit        : slidify::knit2slides
+---
+
+```{r, echo=FALSE, message=F}
+options(scipen=999)
+
+require(slidify)
+require(knitr)
+require(data.table)
+require(ggplot2)
+
+indigenous = fread("../shiny_app/data/brazil_indigenous_population.csv")
+urban_rural = fread("../shiny_app/data/census_population_by_area.csv")
+Encoding(indigenous$state) <- "UTF-8"
+Encoding(urban_rural$state) <- "UTF-8"
+```
+
+
+## Brazilian Census
+
+Each 10 years, the IBGE institute does a survey around all Brazilian territory, in order to offer data and information over social-economics conditions of the people. This data serves to help the politicians and public authorities infer what actions implement on public agenda.  
+  
+In my application, i used the data of the 2010 Census about where  the urban, rural and indigenous population are distributed on Brazil and compared them with the older years.  
+
+The Brazil nation is splitted into 27 states as present in the application.  
+
+--- .class #id 
+
+## Indigenous Census
+
+With the Indigenous Census, it is possible check how they are spread along the territory, on the demographic map, by 3 different decades. On the stack area chart we see if the population are growing or diminishing. For each of the activities is possible choose among the 27 brazilian states, and check the area as isolated case.
+
+```{r, echo=F}
+tb = indigenous[, list("indigenous"=sum(indigenous)), by=year]
+tb[, "growth_rate":=NA]
+for(i in 1:(nrow(tb)-1)){
+  tb$growth_rate[i+1]=(round(tb$indigenous[(i+1)]*100/tb$indigenous[i],2) -100)
+}
+
+print(tb)
+```
+
+The table above show us how much the indigenous population has be growing. The `growth_rate` column is in percentage terms, we see a high enlargement, maybe it not just invoked by real population growth, but the increase on census accuracy and  in the own indian declaration about its race.
+
+--- .class #id 
+
+## Indigenous Census
+Checking specific states, it is possible to note distinct moves on the indigenous growth. When some states keep the growth, others seems to diminish of native presence, maybe it can be associate to migratory moves.
+
+```{r, echo=F, warning=F}
+rm(tb)
+tb = indigenous[state%in%c("Roraima", "São Paulo", "Bahia", "Pernambuco"), list("indigenous"=sum(indigenous)), by=list(state, year)]
+```
+
+```{r, echo=F, fig.width=8, fig.height=5}
+qplot(data=tb, x=year, y=indigenous, group=state, colour=state, geom="line")
+```
+
+--- .class #id 
+
+## Urban-Rural Census
+
+The Urban-Rural Census evaluates the brazilian population distributed between these two factors. If join both, i can see the whole population along the decades.
+
+```{r, echo=F}
+rm(tb)
+tb = urban_rural[area=="both", colSums(.SD), .SDcols=2:7]
+tb = data.table("years"=names(tb), "pop"=tb)
+tb[, "growth_rate":=NA]
+for(i in 1:(nrow(tb)-1)){
+  tb$growth_rate[i+1]=(round(tb$pop[(i+1)]*100/tb$pop[i],2) -100)
+}
+print(tb)
+```
+
+--- .class #id 
+
+## Urban-Rural Census
+
+I can verify the population growth along the urban and rural factors.
+
+```{r, echo=F, fig.width=10, fig.height=5}
+rm(tb)
+tb = urban_rural[area!="both", list("pop"=(colSums(.SD)/1e6), year=names(.SD)), .SDcols=2:7, by=area]
+
+qplot(data=tb, x=year, y=pop, group=area, colour=area, geom="line", xlab = "Years", ylab="Population in millions")
+```
+
+Here, we can perceive that the urban still growing, but the rural are decreasing since the 70's.
+
+--- .class #id 
