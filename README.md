@@ -9,7 +9,7 @@ The project also is intended as an evaluable assignment of the Coursera course [
 
 The code for the shiny application are at [shiny_app](./shiny_app).  
 
-To get and prepare the data to the shinyapp, you can check [here](./get-data), all codes are reproducible.
+To get and prepare the data to the shinyapp, the code are at [get-data](./get-data), they're reproducible.
   
 
 ***
