@@ -1,19 +1,19 @@
 ## **Welcome**
 
-This application is based on the [Brazilian Demographic Census of 2010](http://censo2010.ibge.gov.br/), and it intends to show how the urban, rural and indigenous population of the Brazil are spread along the national states, and how the population has been growing or diminishing compared to the last censuses.  
+This application is based on the [Brazilian Demographic Census of 2010](http://censo2010.ibge.gov.br/), and it shows how the urban, rural and indigenous populations of the Brazil are spread over the national states, and how these populations size are been transformed along the last censuses.  
 
 The app is avalaible [here](https://toledo-rafael.shinyapps.io/urban-rural-indigenous-census-BR/).  
 
-The project also is intended as an evaluable assignment of the Coursera course [Developing Data Products](https://www.coursera.org/learn/data-products), which also contains a small presentation of the application in *slidify*, it can be seen [here](https://tldrafael.github.io/coursera-developing-data-products/slidify/index.html).  
+This project intends as an evaluable assignment to the Coursera course [Developing Data Products](https://www.coursera.org/learn/data-products), and  also contains a small presentation of the application in *slidify*, which can be seen [here](https://tldrafael.github.io/coursera-developing-data-products/slidify/index.html).  
   
 
-The code for the shiny application are at [shiny_app](./shiny_app).  
+The codes of the shiny application are at [shiny-app](./shiny-app).  
 
-To get and prepare the data to the shinyapp, the code are at [get-data](./get-data), they're reproducible.
+To get and prepare the data used, the codes are at [get-data](./get-data), they're reproducible.
   
 
 ***
-The session environment used in RStudio follows bellow:
+The session environment present for development:
 
 ```
 R version 3.3.1 (2016-06-21)
